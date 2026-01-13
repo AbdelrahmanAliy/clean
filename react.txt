@@ -1,0 +1,28 @@
+This is clean code 'for React + tailwindcss + node js + express js'
+
+// This is for money $$$.99
+
+I have installed react and set up tailwind css
+every time you create new css page import tailwindcss;
+
+import { useEffect, useState } from "react";
+
+function App() {
+  const [alpha, setAlpha] = useState([]);
+
+  useEffect(() => {
+    fetch("/api/alpha")
+      .then(res => res.json())
+      .then(setAlpha);
+  }, []);
+
+  return (
+    <div>
+      {alpha.map(item => (
+        <p key={item.id}>{item.name}</p>
+      ))}
+    </div>
+  );
+}
+
+export default App;
